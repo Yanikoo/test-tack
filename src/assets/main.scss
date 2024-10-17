@@ -1,0 +1,32 @@
+@import './variables.scss';
+@import './style.scss';
+
+//обнуляем стили
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+
+.button {
+  background-color: blue;
+  color: white;
+}
+
+a {
+  // text-decoration: none;
+  // color: inherit;
+}
+
+input,
+textarea {
+  border: none;
+  outline: none;
+  font-family: inherit;
+}
+
+table {
+  border-collapse: collapse;
+}
