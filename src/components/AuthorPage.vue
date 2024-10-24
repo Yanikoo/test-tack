@@ -5,16 +5,36 @@
         <div class="fotm__items">
           <h1 class="form__title">Авторизация</h1>
         </div>
-        <h2 class="form__text">Логин или Телефон</h2>
+        <h2 class="form__text"></h2>
+
         <div class="form__input-box">
-          <img class="form__icon" src="images/telephone.svg" alt="трубка" />
-          <input  type="text" placeholder="+7" />
+          <div class="form__row">
+            <img class="form__icon" src="images/telephone.svg" alt="трубка" />
+            <div class="input-container">
+              <input
+                type="text"
+                id="login-phone"
+                v-model="loginPhone"
+                placeholder="+7"
+                required
+                @focus="isPhoneFocused = true"
+                @blur="isPhoneFocused = !loginPhone"
+              />
+              <label :style="phoneLabelStyle" for="login-phone">Логин или Телефон</label>
+            </div>
+          </div>
           <div class="form__line"></div>
         </div>
-        <div class="input-box">
-          <img class="form__icon" src="images/password.svg" alt="замок" />
-          <input  type="password" placeholder="Пароль" />
-          <img class="form__icon-eye" src="images/eye.svg" alt="показать пароль" />
+
+        <div class="form__input-box">
+          <div class="form__row">
+            <img class="form__icon" 
+              src="images/password.svg" 
+              alt="замок" />
+            <input  type="password" placeholder="Пароль" />
+            <img class="form__icon-eye" src="images/eye.svg" alt="показать пароль" />
+          </div>
+        
           <div class="form__line"></div>
         </div>
 
@@ -27,7 +47,30 @@
 <script>
 export default {
   name: "AuthorPage",
+  data() {
+    return {
+      loginPhone: '',
+      password: '',
+      isPhoneFocused: false,
+      isPasswordFocused: false,
+    };
+  },
+  computed: {
+    phoneLabelStyle() {
+      return {
+        position: 'absolute',
+        left: this.isPhoneFocused || this.loginPhone ? '1px' : '20px',
+        top: this.isPhoneFocused || this.loginPhone ? '-14px' : '13px' ,
+        fontSize: this.isPhoneFocused || this.loginPhone ? '12px' : '16px',
+        color: this.isPhoneFocused || this.loginPhone ? 'rgba(68, 162, 72, 1)' : '#aaa',
+        transition: 'all 0.2s',
+        pointerEvents: 'none',
+      };
+    },
+  },
 };
+
+
 
 </script>
 
@@ -41,9 +84,7 @@ export default {
   width: 340px;
   height: 309px;
   top: 223px;
-  left: 454px;
-
- 
+  left: 454px; 
 }
 
 
@@ -94,23 +135,22 @@ export default {
   color: rgba(255, 255, 255, 1);
 }
 
-.form__text {
-  display: flex;
-  justify-content: center;
-  font-family: Roboto;
-  font-size: 12px;
-  width: 244px;
-  height: 18px;
-  margin-top: 29px;
-  align-items: left;
-  color: rgba(68, 162, 72, 1);
-
+.form__row {
+  align-items: center;
+  margin: 10px;
+  gap: 8px;
 }
 
-.form__input-box, .input-box {
+ .input-container {
+  position: relative;
+  width: 100%; 
+} 
+
+.form__input-box {
   width: 300px; 
   height: 120px; 
   position: relative; 
+  margin-top: 40px;
   gap: 8px;
 }
 
@@ -119,30 +159,19 @@ export default {
   height: 2px;       
   background-color: #ccc; 
   margin-top: 5px;
-  
-}
-
-
-.form__icon {
-  width: Fill (256px)px;
-  height: Fill (56px)px;
-  padding: 0px 12px 0px 0px;
-  gap: 0px;
-  border-radius: 4px 4px 0px 0px;
-  border: 0px 0px 1px 0px;
-  opacity: 0px;
 }
 
 .form__icon {
-  left: 20px;
-  } 
+  // padding: 0px 12px 0px 0px;
+  // border-radius: 4px 4px 0px 0px;
+  // border: 0px 0px 1px 0px;
+  // opacity: 0px;
+}
 
 .form__icon-eye {
   position: absolute;
-  top: 20px;
   right: 0px;
 }
-
 
 .form__btn {
   display: flex;
@@ -169,4 +198,9 @@ export default {
   align-items: center;
 }
 
+.form__row{
+  display: flex;
+  justify-content: flex-start;
+
+  align-items: center;}
 </style>
