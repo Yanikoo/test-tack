@@ -10,13 +10,15 @@
               <img src="images/Poisk.jpg" alt="трубка" />
           </div>
               <div class="table__line"></div>
-          <div class="table__box-input">
-              <input type="text" placeholder="ДОМ">
-              <img src="images/strel.jpg" alt="кнопка расскрыть" />
+          <div class="table__box-input">test-tack
+              <input type="text" placeholder="Дом">
+              <img src="images/Outline.svg" alt="кнопка расскрыть" />
           </div>
           <div class="table__line"></div>
       </form>
-      <table class="table">
+
+
+      <!-- <table class="table">
           <thead class="table__items">
               <th>№</th>
               <img src="images/Arrow.svg" alt="#" class="table__img">
@@ -33,7 +35,7 @@
             <tr class="table__items">Блок</tr>
                 <td></td>
           </tbody>
-      </table>
+      </table> -->
 
     </div>
   </main> 
@@ -52,14 +54,14 @@
   align-items: flex-start;
   padding: 20px;
   gap: 20px;
-  width: 1280px;
+  width: auto;
   height: auto;
   opacity: 1;
   background-color: rgba(238, 238, 238, 1);
 }
 
 h1 {
-  width: 1,280px;
+  width: 1280px;
   height: 73px;
   padding: 0px 32px 0px 32px;
   font-family: Roboto;
@@ -89,6 +91,7 @@ h1 {
   flex-direction: column;
   width: 100%;
   font-family: Roboto;
+  // gap: 16px;
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
@@ -97,10 +100,9 @@ h1 {
 }
 
 .table__btn {
-  // display: flex;
   width: 78px;
   height: 26px;
-  border-radius: 4px;
+  border-radius: 2px;
   border: none;
   background: rgba(80, 176, 83, 1);
   color: rgba(255, 255, 255, 1);
@@ -108,10 +110,8 @@ h1 {
   font-size: 10px;
   font-weight: 400;
   line-height: 11.72px;
-  text-align: center;
   margin-left: auto;  
   cursor: pointer;
-  margin-left: auto;
 }
 
  .table__btn:hover {
@@ -122,20 +122,24 @@ h1 {
 .table__box-input {
   display: flex;
   align-items: center;
-  gap: 8px;
-  width: 100%;
-  height: 40px;
+  width: 598px; 
+  height: 56px;
 }
 
+.table__box-input input {
+  flex: 1; /* Инпут занимает доступное пространство */
+  border: none; /* Убираем стандартную рамку */
+  outline: none; /* Убираем обводку при фокусе */
+  height: 100%; /* Высота инпута соответствует высоте блока */
+}
+  
 img {
   width: 24px;
   height: 40px;
-  margin-left: 8px;
-  opacity: 1;
 }
 
 .table__line {
-  width: 100%;
+  width: 598px;
   height: 1px;
   background: #ccc;
   margin-top: 8px;  
