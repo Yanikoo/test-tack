@@ -32,13 +32,20 @@
               src="images/password.svg" 
               alt="замок" />
             <input  type="password" placeholder="Пароль" />
-            <img class="form__icon-eye" src="images/eye.svg" alt="показать пароль" />
+            <img 
+              class="form__icon-eye" 
+              src="images/eye.svg" 
+              alt="показать пароль" />
           </div>
         
           <div class="form__line"></div>
         </div>
 
-        <button type="submit" class="form__btn"><router-link to="/table-requests">Войти</router-link></button>
+        <button 
+          type="submit" 
+          class="form__btn">
+          <router-link to="/table-requests">Войти</router-link>
+        </button>
       </form>
     </div>
   </main>
@@ -86,7 +93,6 @@ export default {
   top: 223px;
   left: 454px; 
 }
-
 
 .wrapper-items {
   display: flex;
