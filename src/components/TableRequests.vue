@@ -1,5 +1,5 @@
 <template>
-  <main class="header">
+  <main class="main">
     <h1>Списк заявок</h1>
     <div class="wrapper-items">
       <form class="table-requests">
@@ -55,24 +55,95 @@
         </div>
       </form>
 
-      <!-- <table class="table">
-          <thead class="table__items">
-              <th>№</th>
-              <img src="images/Arrow.svg" alt="#" class="table__img">
-              <th>Создана</th>
-              <img src="images/Hint.svg" alt="#" class="table__img">
-              <th>Адрес</th>
-              <th>Заявитель</th>
-              <th>Описание</th>
-              <th>Срок</th>
-              <th>Статус</th>
-              <img src="images/Arrow.svg" alt="#" class="table__img">
-          </thead>
-          <tbody>
-            <tr class="table__items">Блок</tr>
-                <td></td>
-          </tbody>
-      </table>  -->
+      <table class="custom-table">
+        <thead class="custom-table__items">
+          <tr>
+            <th>
+              №
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <mask
+                  id="mask0_4829_140"
+                  style="mask-type: alpha"
+                  maskUnits="userSpaceOnUse"
+                  x="0"
+                  y="0"
+                  width="16"
+                  height="16"
+                >
+                  <rect width="16" height="16" fill="#D9D9D9" />
+                </mask>
+                <g mask="url(#mask0_4829_140)">
+                  <path
+                    d="M7.33333 12V5.86668L4.93333 8.26668L4 7.33334L8 3.33334L12 7.33334L11.0667 8.26668L8.66667 5.86668V12H7.33333Z"
+                    fill="#CCCCCC"
+                  />
+                </g>
+              </svg>
+            </th>
+            <th>
+              Создана
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <mask
+                  id="mask0_4829_586"
+                  style="mask-type: alpha"
+                  maskUnits="userSpaceOnUse"
+                  x="0"
+                  y="0"
+                  width="16"
+                  height="16"
+                >
+                  <rect width="16" height="16" fill="#D9D9D9" />
+                </mask>
+                <g mask="url(#mask0_4829_586)">
+                  <path
+                    d="M7.33333 12V5.86668L4.93333 8.26668L4 7.33334L8 3.33334L12 7.33334L11.0667 8.26668L8.66667 5.86668V12H7.33333Z"
+                    fill="#333333"
+                  />
+                </g>
+              </svg>
+            </th>
+            <th>Адрес</th>
+            <th>Заявитель</th>
+            <th>Описание</th>
+            <th>Срок</th>
+            <th>
+              Статус
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <mask
+                  id="mask0_4829_140"
+                  style="mask-type: alpha"
+                  maskUnits="userSpaceOnUse"
+                  x="0"
+                  y="0"
+                  width="16"
+                  height="16"
+                >
+                  <rect width="16" height="16" fill="#D9D9D9" />
+                </mask>
+                <g mask="url(#mask0_4829_140)">
+                  <path
+                    d="M7.33333 12V5.86668L4.93333 8.26668L4 7.33334L8 3.33334L12 7.33334L11.0667 8.26668L8.66667 5.86668V12H7.33333Z"
+                    fill="#CCCCCC"
+                  />
+                </g>
+              </svg>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <button class="custom-table__btn-number" aria-label="390">390</button>
+            </td>
+            <td>01/01/2023</td>
+            <td>ул. Примерная, 1</td>
+            <td>Забавкин А.П.</td>
+            <td>Подкрасить царапины на стенах в гостиной.</td>
+            <td>24.04.2024 10:00</td>
+            <td>Новая</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </main>
 </template>
@@ -84,26 +155,34 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+.main {
   padding: 20px;
-  gap: 20px;
   width: auto;
   height: auto;
-  opacity: 1;
   background-color: rgba(238, 238, 238, 1);
 
+  .wrapper-items {
+    width: auto;
+    margin-top: 20px;
+    top: 27px;
+    left: 15px;
+    padding: 10px 20px 10px 20px;
+    gap: 32px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  h1 {
+    width: 1280px;
+    height: 73px;
+    padding: 0px 32px 0px 32px;
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: rgba(69, 69, 69, 1);
+  }
   .table {
-    &__box-left {
-      width: 50%;
-      display: flex;
-      align-items: center;
-      border-bottom: 2px solid #ccc;
-      justify-content: space-between;
-    }
-
     &-requests {
       display: flex;
       flex-direction: column;
@@ -114,14 +193,6 @@ export default {
       line-height: 24px;
       text-align: left;
       color: rgba(255, 255, 255, 1);
-    }
-    &__input-start {
-      width: 100%;
-    }
-
-    &__box-icon {
-      display: flex;
-      align-items: right;
     }
     &__btn {
       width: 78px;
@@ -143,57 +214,60 @@ export default {
       background-color: rgba(106, 174, 94, 0.25);
       transition: 0.5s;
     }
+    &__box-input {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    &__box-left {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #ccc;
+      justify-content: space-between;
+    }
+    &__input-start,
+    &__input-end {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    &__box-icon {
+      display: flex;
+      align-items: right;
+      margin-bottom: 10px;
+    }
   }
-}
-
-h1 {
-  width: 1280px;
-  height: 73px;
-  padding: 0px 32px 0px 32px;
-  font-family: Roboto;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 24px;
-  text-align: left;
-  color: rgba(69, 69, 69, 1);
-}
-
-.wrapper-items {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin-top: 20px;
-  top: 27px;
-  left: 15px;
-  padding: 10px 20px 10px 20px;
-  gap: 32px;
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 1);
-}
-
-.table__box-input {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-// .table__input-start {
-//   display: flex;
-//   align-items: center;
-//   width: 200px;
-//   }
-
-// .table__box-left{
-//   width: 50%;
-//   display: flex;
-//   align-items: center;
-//   border-bottom: 2px solid #ccc;
-// }
-
-.table__box-right {
-  width: 50%;
-  display: flex;
-  align-items: center;
+  .custom-table {
+    width: 100%;
+    margin-top: 32px;
+    &__items {
+      width: 100%;
+      font-family: Roboto;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 19px;
+      text-align: left;
+      color: rgba(80, 176, 83, 1);
+      border-bottom: 1px solid #ccc;
+    }
+    th,
+    td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+    }
+    tr:hover {
+      background-color: rgba(80, 176, 83, 0.1);
+    }
+    &__btn-number {
+      width: 56px;
+      height: 28px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      color: rgba(255, 255, 255, 1);
+      background: rgba(80, 176, 83, 1);
+    }
+  }
 }
 </style>
