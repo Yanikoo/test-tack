@@ -144,6 +144,44 @@
           </tr>
         </tbody>
       </table>
+
+      <nav class="navigation">
+        <div class="navigation__select">
+          <select v-model="selectedRecords" @change="onChangeRecords">
+            <option v-for="option in recordOptions" :key="option.value" :value="option.value">
+              {{ option.label }}
+            </option>
+          </select>
+          <button class="navigation__expand-button" @click="toggleList" aria-label="Развернуть список">
+            <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 6.37512L0 0.375122H1.4H6L10.6 0.375464L12 0.375122L6 6.37512Z" fill="#999999" />
+            </svg>
+          </button>
+        </div>
+        <div class="navigation__record-list" v-if="isListVisible">
+          <ul>
+            <li v-for="record in records" :key="record.id">{{ record.name }}</li>
+          </ul>
+        </div>
+
+        <!-- <nav class="pagination">
+          <button class="pagination__button" @click="prevPage" :disabled="currentPage === 1"></button>
+
+          <span class="pagination__pages">
+            <button
+              v-for="page in totalPages"
+              :key="page"
+              class="pagination__item"
+              :class="{ active: page === currentPage }"
+              @click="setPage(page)"
+            >
+              {{ page }}
+            </button>
+          </span>
+
+          <button class="pagination__button" @click="nextPage" :disabled="currentPage === totalPages"></button>
+        </nav> -->
+      </nav>
     </div>
   </main>
 </template>
@@ -248,7 +286,6 @@ export default {
       line-height: 19px;
       text-align: left;
       color: rgba(80, 176, 83, 1);
-      border-bottom: 1px solid #ccc;
     }
     th,
     td {
@@ -267,6 +304,51 @@ export default {
       cursor: pointer;
       color: rgba(255, 255, 255, 1);
       background: rgba(80, 176, 83, 1);
+    }
+    &__btn-number:hover {
+      background-color: rgba(106, 174, 94, 0.25);
+      transition: 0.5s;
+    }
+  }
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 32px;
+    &__select {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    &__select select {
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  }
+  .pagination {
+    display: flex;
+    align-items: center;
+    &__button {
+      margin: 0 5px;
+    }
+    &____pages {
+      display: flex;
+      align-items: center;
+    }
+    &__item {
+      width: 32px;
+      height: 32px;
+      padding: 10px 16px;
+      gap: 4px;
+      border-radius: 50px 0 0 0;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      opacity: 0.6;
+      transition:
+        0.3s,
+        opacity 0.3s;
     }
   }
 }
